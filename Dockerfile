@@ -1,6 +1,6 @@
 # Use a multi-stage build to combine the specific images
-FROM mempool/frontend:v3.2.1 AS frontend
-FROM mempool/backend:v3.2.1 AS backend
+FROM mempool/frontend:v3.3.0-alpha2 AS frontend
+FROM mempool/backend:v3.3.0-alpha2 AS backend
 
 ENV MEMPOOL_CLEAR_PROTECTION_MINUTES="20"
 ENV MEMPOOL_INDEXING_BLOCKS_AMOUNT="52560"
@@ -18,7 +18,7 @@ ARG ARCH
 RUN apt-get update && \
   apt-get install -y --allow-downgrades nginx wait-for-it wget netcat-traditional \
   build-essential python3 pkg-config rsync gettext iproute2 pwgen \
-  && wget https://github.com/mikefarah/yq/releases/download/v4.6.3/yq_linux_${PLATFORM}.tar.gz -O - |\
+  && wget https://github.com/mikefarah/yq/releases/download/v4.50.1/yq_linux_${PLATFORM}.tar.gz -O - |\
   tar xz && mv yq_linux_${PLATFORM} /usr/bin/yq \
   && apt-get clean
 
