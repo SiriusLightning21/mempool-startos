@@ -2,7 +2,7 @@ import { types as T, compat, matches } from "../deps.ts";
 
 const { shape, boolean, string } = matches;
 
-const current = "3.2.1.3";
+const current = "3.3.0";
 
 export const migration: T.ExpectedExports.migration = (
   effects: T.Effects,
